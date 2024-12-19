@@ -10,12 +10,17 @@ const taskSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enuma: ["pending", "completed"],
+    enum: ["pending", "completed"], // Fixed typo from `enuma`
     default: "pending",
   },
   createdAt: {
     type: Date,
     default: Date.now(),
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Reference the User schema
+    required: true,
   },
 });
 
