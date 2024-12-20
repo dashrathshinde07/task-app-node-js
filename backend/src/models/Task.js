@@ -3,24 +3,19 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, "Task title is required"], // Added custom error message
   },
   description: {
     type: String,
   },
   status: {
     type: String,
-    enum: ["pending", "completed"], // Fixed typo from `enuma`
+    enum: ["pending", "completed"], // Restrict to these values
     default: "pending",
   },
   createdAt: {
     type: Date,
-    default: Date.now(),
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Reference the User schema
-    required: true,
+    default: Date.now,
   },
 });
 
