@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: [true, "Task title is required"], // Added custom error message
+    required: [true, "Task title is required"], // Title is mandatory
   },
   description: {
     type: String,
